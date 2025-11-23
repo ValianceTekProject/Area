@@ -1,0 +1,9 @@
+[submodule "back"]
+	path = back
+	url = git@github.com:ValianceTekProject/AreaBack.git
+[submodule "front"]
+	path = front
+	url = git@github.com:ValianceTekProject/AreaFront.git
+[submodule "mobile"]
+	path = mobile
+	url = git@github.com:ValianceTekProject/AreaMobile.git
