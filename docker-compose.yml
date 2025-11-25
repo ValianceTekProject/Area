@@ -14,8 +14,6 @@ services:
       DATABASE_URL: ${DATABASE_URL}
     networks:
       - area
-    command: /bin/sh -c "go run github.com/steebchen/prisma-client-go db push && ./back"
-
 
   db:
     image: postgres:13
