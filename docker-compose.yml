@@ -3,6 +3,10 @@ services:
     build: ./front/poc_front/
     ports:
       - "8081:3000"
+    environment:
+      - API_URL=http://back:8080
+    networks:
+      - area
 
   back:
     build: ./back
