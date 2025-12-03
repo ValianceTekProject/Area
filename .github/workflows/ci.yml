@@ -1,0 +1,29 @@
+name: Handle Dispatch Event
+
+on:
+  repository_dispatch:
+    types: [update-submodules]
+
+jobs:
+  update-submodules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          submodules: "recursive"
+          fetch-depth: 0
+          token: ${{ secrets.PAT }}
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Update submodules
+        run: |
+          git submodule update --remote --recursive
+      - name: Push submodule
+        run: |
+          git add .
+          git commit -m "Update back submodule" || echo "No changes"
+          git push
+
