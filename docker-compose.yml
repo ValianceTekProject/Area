@@ -1,6 +1,6 @@
 services:
   front:
-    build: ./front/poc_front/
+    build: ./front
     ports:
       - "8081:3000"
     environment:
