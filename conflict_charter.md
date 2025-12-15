@@ -2,7 +2,7 @@
 
 ## Principes Fondamentaux
 
-**Respect mutuel** : Chaque membre de l'équipe mérite d'être écouté et respecté, quelles que soient ses opinions (Armand) ou compétences techniques (Tilio).
+**Respect mutuel** : Chaque membre de l'équipe mérite d'être écouté et respecté, quelles que soient ses opinions.
 
 **Communication ouverte** : Les désaccords doivent être exprimés de manière constructive et directe, sans attaques personnelles.
 
