@@ -30,7 +30,23 @@ services:
     networks:
       - area
 
+  mobile-builder:
+    build:
+      context: ./mobile
+      dockerfile: Dockerfile
+    volumes:
+      - ./mobile/output:/app/output
+      - gradle-cache:/root/.gradle
+      - /home/Yuuko/Android/Sdk:/root/Android/Sdk
+    environment:
+      - ANDROID_HOME=/root/Android/Sdk
+      - API_IP=192.168.1.41
+    networks:
+      - area
+
 networks:
   area:
     driver: bridge
 
+volumes:
+  gradle-cache:
