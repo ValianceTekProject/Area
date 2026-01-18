@@ -11,7 +11,7 @@ services:
       - server
       - client_mobile
     volumes:
-      - ./APK/:/APK/
+      - ./APK/app-release.apk:/app/public/client.apk:ro
 
   server:
     build: ./back
@@ -41,10 +41,8 @@ services:
       dockerfile: Dockerfile
     volumes:
       - gradle-cache:/root/.gradle
-      - $HOME/Android/Sdk:/root/Android/Sdk
       - ./APK/:/output
     environment:
-      - ANDROID_HOME=/root/Android/Sdk
       - API_IP=192.168.1.41
     networks:
       - area
