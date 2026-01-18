@@ -1,5 +1,5 @@
 services:
-  front:
+  client_web:
     build: ./front
     ports:
       - "8081:3000"
@@ -7,8 +7,13 @@ services:
       - API_URL=http://back:8080
     networks:
       - area
+    depends_on:
+      - server
+      - client_mobile
+    volumes:
+      - ./APK/:/APK/
 
-  back:
+  server:
     build: ./back
     depends_on:
       - db
@@ -30,14 +35,14 @@ services:
     networks:
       - area
 
-  mobile-builder:
+  client_mobile:
     build:
       context: ./mobile
       dockerfile: Dockerfile
     volumes:
-      - ./mobile/output:/app/output
       - gradle-cache:/root/.gradle
-      - /home/Yuuko/Android/Sdk:/root/Android/Sdk
+      - $HOME/Android/Sdk:/root/Android/Sdk
+      - ./APK/:/app/output
     environment:
       - ANDROID_HOME=/root/Android/Sdk
       - API_IP=192.168.1.41
