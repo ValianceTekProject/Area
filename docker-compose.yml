@@ -11,7 +11,7 @@ services:
       - server
       - client_mobile
     volumes:
-      - ./APK/app-release.apk:/app/public/client.apk:ro
+      - ./APK/:/app/public/APK
 
   server:
     build: ./back
